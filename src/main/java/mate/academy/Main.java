@@ -15,11 +15,12 @@ public class Main {
     public static void main(String[] args) {
         AuthenticationService authenticationService = new AuthenticationServiceImpl();
         User user;
+        String login = "bob";
         try {
-            user = authenticationService.login("bob", "1234");
+            user = authenticationService.login(login, "1234");
         } catch (AuthenticationException e) {
             logger.error("Can't login. Params: user login = {}",
-                    "login", e);
+                    login, e);
             return;
         }
         OrderService orderService = new OrderServiceImpl();
